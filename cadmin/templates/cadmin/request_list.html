@@ -1,2 +1,28 @@
-hello peter
+{% load staticfiles %}
+<html>
+    <head>
+        <title>Client admin</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{% static 'css/cadmin.css' %}">
+        <link href="http://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <div class="page-header">
+            <h1><a href="/">Client admin</a></h1>
+        </div>
+
+        {% for request in requests %}
+            <div class="post">
+                <p>published: {{ request.published_date }}</p>
+                <h1><a href="">{{ request.title }}</a></h1>
+                <p>{{ request.text|linebreaks }}</p>
+            </div>
+        {% endfor %}
+
+    </body>
+</html>
+
+
+
 
